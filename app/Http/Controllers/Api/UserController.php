@@ -33,7 +33,7 @@ class UserController extends Controller
 
         $count = $validated['count'] ?? 5;
 
-        $users = User::orderBy('id', 'desc')->paginate($count);
+        $users = User::with('position')->orderBy('id', 'desc')->paginate($count);
 
         return response()->json([
             'success' => true,

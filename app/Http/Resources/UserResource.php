@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use App\Models\User;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Storage;
 
 class UserResource extends JsonResource
 {
@@ -21,7 +22,7 @@ class UserResource extends JsonResource
             'phone' => $this->resource->phone,
             'position' => $this->resource->position?->name,
             'position_id' => $this->resource->position_id,
-            'photo' => $this->resource->photo,
+            'photo' => $this->resource->photo ? asset(Storage::url($this->resource->photo)) : null,
         ];
     }
 }

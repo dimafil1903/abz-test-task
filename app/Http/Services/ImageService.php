@@ -41,6 +41,6 @@ class ImageService
         $source = fromFile(Storage::disk('public')->path('images/' . $imageName));
         $source->toFile(Storage::disk('public')->path('images/' . $imageName));
 
-        return url('images/' . $imageName);
+        return 'images/' . $imageName;
     }
 }
